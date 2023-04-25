@@ -1,7 +1,10 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./src/index.ts",
+    entry: {
+      "index": "./pages/home/index.ts",
+      "flopedia": "./pages/flopedia/flopedia.ts"
+    },
     mode: "development",
     devtool: "inline-source-map",
     module: {
@@ -17,7 +20,7 @@ module.exports = {
         extensions: [".tex", ".ts", ".js"],
     },
     output: {
-        filename: "bundle.js",
+        filename: "[name].js",
         path: path.resolve(__dirname, "dist"),
     }
 }
