@@ -3,7 +3,8 @@ const path = require("path");
 module.exports = {
     entry: {
       "index": "./pages/home/index.ts",
-      "flopedia": "./pages/flopedia/flopedia.ts"
+      "flopedia": "./pages/flopedia/flopedia.ts",
+      "separatingAxisTheorem": "./pages/separatingAxisTheorem/main.ts",
     },
     mode: "development",
     devtool: "inline-source-map",

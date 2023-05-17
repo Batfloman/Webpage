@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <canvas id="weg-gl-canvas"></canvas>
+    </main> 
+
+    <script>
+        try {
+            const regex = /game=([^&\s]+)/gmi;
+            const matches = regex.exec(window.location.search);
+            if(!matches) window.location.search += "&game=default";
+            loadGame(matches[1]);
+        } catch(e) {
+            console.error(e);
+        }
+
+        function loadGame(name) {
+            console.log(name)
+            try {
+                const script = document.createElement("script");
+                script.src = "./src/main.js";
+                document.body.appendChild(script);
+            } catch(e) {
+                console.log(`cannot load ${name}`);
+            }
+        }
+    </script>
+</body>
+</html>

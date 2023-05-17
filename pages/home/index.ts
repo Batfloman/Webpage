@@ -39,7 +39,7 @@ function initialize() {
         )
 
         const axis = new THREE.Vector3().randomDirection().normalize();
-        const obj = new Satellite(sphere, axis, 1000, {axis, distance: Util.random.between(2.5, 4, 2), duration: Util.random.between(5000, 15000), center: sun});
+        const obj = new Satellite(sphere, axis, 1000, {axis, distance: Util.random.between(2.5, 4, 2), duration: Util.random.between(15000, 45000), center: sun});
         planet1 = obj;
         game.addObject(obj);
     }
@@ -50,7 +50,7 @@ function initialize() {
         )
 
         const axis = new THREE.Vector3().randomDirection().normalize();
-        const obj = new Satellite(sphere, axis, 1000, {axis, distance: Util.random.between(1, 1.5, 2), duration: Util.random.between(1000, 2500), center: planet1});
+        const obj = new Satellite(sphere, axis, 1000, {axis, distance: Util.random.between(1, 1.5, 2), duration: Util.random.between(5000, 10000), center: planet1});
         game.addObject(obj);
     }
 
@@ -61,7 +61,7 @@ function initialize() {
         )
 
         const axis = new THREE.Vector3().randomDirection().normalize();
-        const obj = new Satellite(sphere, axis, 1000, {axis, distance: Util.random.between(3, 6, 2), duration: Util.random.between(10000, 25000), center: sun});
+        const obj = new Satellite(sphere, axis, 1000, {axis, distance: Util.random.between(3, 6, 2), duration: Util.random.between(60000, 120000), center: sun});
         game.addObject(obj);
     }
 }
