@@ -6,6 +6,7 @@ import { Util } from "../../myLib/Util";
 const canvas = document.querySelector("canvas");
 
 const game = new Game(canvas, true);
+
 initialize();
 
 function initialize() {

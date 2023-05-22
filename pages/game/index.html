@@ -17,20 +17,25 @@
         try {
             const regex = /game=([^&\s]+)/gmi;
             const matches = regex.exec(window.location.search);
-            if(!matches) window.location.search += "&game=default";
-            loadGame(matches[1]);
+            if(!matches) {
+                const searchEmpty = window.location.search.length === 0
+                window.location.search += `${searchEmpty?"":"&"}game=default`;
+            }
+            const gameName = matches[1];
+            loadGame(gameName);
         } catch(e) {
             console.error(e);
         }
 
         function loadGame(name) {
-            console.log(name)
+            const script = document.createElement("script");
             try {
-                const script = document.createElement("script");
-                script.src = "./src/main.js";
+                script.src = `../../dist/${name}.js`;
                 document.body.appendChild(script);
             } catch(e) {
                 console.log(`cannot load ${name}`);
+                script.src = "../../dist/test.js";
+                document.body.appendChild(script);
             }
         }
     </script>
