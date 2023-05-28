@@ -29,6 +29,8 @@ export class GameObject {
 
     getThreeObj = () => this.group;
 
+    getClassName = () => this.constructor.name;
+
     move(distance: number): void {
         const facing = new THREE.Vector3().copy(this.facing);
         this.pos.add(facing.multiplyScalar(distance));

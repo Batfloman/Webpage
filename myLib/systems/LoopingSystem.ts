@@ -4,7 +4,7 @@ import * as THREE from "three";
 export class LoopingSystem {
     private clock: THREE.Clock;
 
-    private ranBeforeBlur = false;
+    private wasRunningBeforeBlur = false;
 
     constructor(autoStart = false) {
         this.clock = new THREE.Clock();
@@ -12,11 +12,11 @@ export class LoopingSystem {
         this.innerLoop();
 
         window.addEventListener("blur", () => {
-            this.ranBeforeBlur = this.clock.running; 
+            this.wasRunningBeforeBlur = this.clock.running; 
             this.stop()
         });
         window.addEventListener("focus", () => {
-            if(this.ranBeforeBlur) this.start();
+            if(this.wasRunningBeforeBlur) this.start();
         });
     }
 

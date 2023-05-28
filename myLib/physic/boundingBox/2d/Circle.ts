@@ -6,7 +6,7 @@ export class Circle extends BoundingBox {
     constructor(radius: number) {
         super();
 
-        this.radius = radius;
+        this.boudingCircleRadius = this.radius = radius;
     }
 
     public getArea(): number {

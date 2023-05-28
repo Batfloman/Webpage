@@ -1,1 +1,1 @@
-console.log("default");
+alert("game not found");

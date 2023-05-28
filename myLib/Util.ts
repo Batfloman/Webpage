@@ -31,6 +31,45 @@ export const Util = {
     math: {
         floor(num: number, num_Decimals = 0): number {
             return Math.floor(num * Math.pow(10, num_Decimals)) / Math.pow(10, num_Decimals);
+        },
+    },
+    object: {
+        getClass: (obj: Object): Function => obj.constructor,
+        getClassName: (obj: Object): String =>  obj.constructor.name,
+        getSuperClass: (obj: Object): Function => Object.getPrototypeOf(Object.getPrototypeOf(obj)).constructor,
+        getSuperClassName: (obj: Object): String => Object.getPrototypeOf(Object.getPrototypeOf(obj)).constructor.name,
+        getAllClassNames: (obj: Object): String[] => {
+            let nextClass = Util.object.getClass(obj);
+            const foundNames = new Array<String>();
+            while(nextClass.name !== "") {
+                foundNames.push(nextClass.name);
+                nextClass = Util.class.getSuperClass(nextClass);
+            }
+
+            return foundNames;
+        },
+        getAllSuperClassNames: (obj: Object): String[] => {
+            let nextClass = Util.object.getSuperClass(obj);
+            const foundNames = new Array<String>();
+            while(nextClass.name !== "") {
+                foundNames.push(nextClass.name);
+                nextClass = Util.class.getSuperClass(nextClass);
+            }
+            return foundNames;
+        }
+    },
+    class: {
+        getName: (clasz: Function) => clasz.name,
+        getSuperClass: (clasz: Function) => Object.getPrototypeOf(clasz),
+        getSuperClassName: (clasz: Function) => Object.getPrototypeOf(clasz).name,
+        getAllSuperClassNames: (clasz: Function): String[] => {
+            let nextClass = Util.class.getSuperClass(clasz);
+            const foundNames = new Array<String>();
+            while(nextClass.name !== "") {
+                foundNames.push(nextClass.name);
+                nextClass = Util.class.getSuperClass(nextClass);
+            }
+            return foundNames;
         }
     }
 }
