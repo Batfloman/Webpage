@@ -1,5 +1,5 @@
 export abstract class BoundingBox {
-    public boudingCircleRadius: number;
+    public boudingSphereRadius: number;
     
     public abstract getArea(): number;
 }

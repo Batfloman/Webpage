@@ -35,12 +35,12 @@ export const Util = {
     },
     object: {
         getClass: (obj: Object): Function => obj.constructor,
-        getClassName: (obj: Object): String =>  obj.constructor.name,
+        getClassName: (obj: Object): string =>  obj.constructor.name,
         getSuperClass: (obj: Object): Function => Object.getPrototypeOf(Object.getPrototypeOf(obj)).constructor,
-        getSuperClassName: (obj: Object): String => Object.getPrototypeOf(Object.getPrototypeOf(obj)).constructor.name,
-        getAllClassNames: (obj: Object): String[] => {
+        getSuperClassName: (obj: Object): string => Object.getPrototypeOf(Object.getPrototypeOf(obj)).constructor.name,
+        getAllClassNames: (obj: Object): string[] => {
             let nextClass = Util.object.getClass(obj);
-            const foundNames = new Array<String>();
+            const foundNames = new Array<string>();
             while(nextClass.name !== "") {
                 foundNames.push(nextClass.name);
                 nextClass = Util.class.getSuperClass(nextClass);
@@ -48,9 +48,9 @@ export const Util = {
 
             return foundNames;
         },
-        getAllSuperClassNames: (obj: Object): String[] => {
+        getAllSuperClassNames: (obj: Object): string[] => {
             let nextClass = Util.object.getSuperClass(obj);
-            const foundNames = new Array<String>();
+            const foundNames = new Array<string>();
             while(nextClass.name !== "") {
                 foundNames.push(nextClass.name);
                 nextClass = Util.class.getSuperClass(nextClass);

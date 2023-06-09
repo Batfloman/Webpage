@@ -3,7 +3,7 @@ import { LoopingSystem } from "./LoopingSystem";
 import { Util } from "../Util";
 import * as THREE from "three";
 
-export class Game extends LoopingSystem {
+export class ThreeJSGame extends LoopingSystem {
     private objects: GameObject[] = [];
 
     public renderer: THREE.Renderer;
