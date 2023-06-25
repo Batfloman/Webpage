@@ -1,4 +1,4 @@
-import { Game } from "../../myLib/systems/ThreeJSGame";
+import { Game } from "../../myLib/systems/Game";
 import * as THREE from "three";
 import { Satellite } from "./src/Satellite";
 import { Util } from "../../myLib/Util";
